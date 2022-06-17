@@ -40,38 +40,185 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Foto</label>
-                                    <input type="file" name="foto" value="{{ old('foto') }}" 
-                                        class="form-control  @error('foto') is-invalid @enderror" required>
-        
+                                    <input type="file" name="foto" value="{{ old('foto') }}" class="form-control  
+                                    @error('foto') is-invalid @enderror" required>
                                     @error('foto')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
-                                
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row col-md-3" style="display: none">
+                            <h6>Lokasi Tanah</h6>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>File</label>
-                                    <input type="file" name="file"
-                                        class="form-control  @error('file') is-invalid @enderror" required>
-                                        @error('file')
+                                    <label>Alamat</label>
+                                    <textarea name="alamat" class="form-control" placeholder="Masukan alamat" id="" cols="30" rows="5">{{ old('alamat') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Kelurahan/Desa</label>
+                                    <input type="text" name="kelurahan_desa" value="{{ old('kelurahan_desa') }}" placeholder="Masukkan Kelurahan/Desa" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Kecamatan</label>
+                                    <input type="text" name="kecamatan" value="{{ old('kecamatan') }}" placeholder="Masukkan Kecamatan" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Titik Koordinat</label>
+                                    <input type="text" name="koordinat" value="{{ old('koordinat') }}" placeholder="Masukkan Titik Koordinat" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mb-1">Batas Utara</label>
+                                    <input type="text" name="batas_utara" class="form-control mb-2" placeholder="Masukkan batas utara" value="{{ old('batas_utara') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mb-1">Batas Timur</label>
+                                    <input type="text" name="batas_timur" class="form-control mb-2" placeholder="Masukkan batas timur" value="{{ old('batas_timur') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mb-1">Batas Selatan</label>
+                                    <input type="text" name="batas_selatan" class="form-control mb-2" placeholder="Masukkan batas selatan" value="{{ old('batas_selatan') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="mb-1">Batas Barat</label>
+                                    <input type="text" name="batas_barat" class="form-control" placeholder="Masukkan batas barat" value="{{ old('batas_barat') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Luas</label>
+                                    <input type="number" name="luas" value="{{ old('luas') }}" placeholder="Masukkan Luas" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-3" style="display: none">
+                            <h6>Legalitas Tanah</h6>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Surat Tanah</label>
+                                    <Select name="surat_tanah" class="form-control">
+                                        <option value="ada">Ada</option>
+                                        <option value="tidak_ada">Tidak ada</option>
+                                    </Select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Bentuk Surat</label>
+                                    <Select name="bentuk_surat" class="form-control">
+                                        <option value="">-</option>
+                                        <option value="sph">SPH</option>
+                                        <option value="sertifikat">Sertifikat</option>
+                                    </Select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>No Surat</label>
+                                    <input type="text" name="no_surat_dokumen" value="{{ old('no_surat_dokumen') }}" placeholder="Masukkan No" class="form-control @error('no_surat_dokumen') is-invalid @enderror">
+                                        @error('no_surat_dokumen')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Tanggal Surat</label>
+                                    <input type="date" name="tgl_surat_dokumen" value="{{ old('tgl_surat_dokumen') }}" 
+                                        class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-3" style="display: none">
+                            <h6>Asal usul Tanah</h6>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Bentuk asal usul Tanah</label>
+                                    <Select name="asal_usul" class="form-control">
+                                        <option value="pembebasan">Pembebasan</option>
+                                        <option value="hibah">Hibah</option>
+                                        <option value="kas_desa">Kas Desa</option>
+                                    </Select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>No Surat</label>
+                                    <input type="text" name="no_surat_asal_usul" value="{{ old('no_surat_asal_usul') }}" placeholder="Masukkan No" class="form-control @error('no_surat_asal_usul') is-invalid @enderror" required>
+                                    @error('no_surat_asal_usul')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
                             </div>
-                         
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Tanggal Surat</label>
+                                    <input type="date" name="tgl_surat_asal_usul" value="{{ old('tgl_surat_asal_usul') }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Konflik Tanah</label>
+                                    <Select name="konflik" class="form-control">
+                                        <option value="sengketa">Sengketa</option>
+                                        <option value="clear">Clear & Clean</option>
+                                    </Select>
+                                </div>
+                            </div>
                         </div>
                         <div class="row" style="display: none">
                             <div class="col-md-3">
                                 <div class="form-group">
+                                    <label>Keterangan Legalitas Tanah</label>
+                                    <textarea name="keterangan_legalitas" class="form-control" placeholder="Masukan Keterangan" id="" cols="30" rows="5">{{ old('keterangan_legalitas') }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-3" style="display: none">
+                            <h6>Status Tanah</h6>
+                        </div>
+                        <div class="row" style="display: none">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Perangkat Daerah</label>
+                                    <input type="text" name="perangkat_daerah" value="{{ old('perangkat_daerah') }}" placeholder="Masukkan Perangkat Daerah" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" name="kode_barang" value="{{ old('kode_barang') }}" placeholder="Masukkan Kode"
-                                        class="form-control @error('kode_barang') is-invalid @enderror" required>
-        
+                                    <input type="text" name="kode_barang" value="{{ old('kode_barang') }}" placeholder="Masukkan Kode" class="form-control @error('kode_barang') is-invalid @enderror" required>
                                     @error('kode_barang')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
@@ -81,48 +228,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Register</label>
-                                    <input type="number" name="register" value="{{ old('register') }}" placeholder="Masukkan Register"
-                                        class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Nama</label>
-                                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama"
-                                        class="form-control @error('password') is-invalid @enderror" required>
-        
-                                    @error('name')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>No Sertifikat</label>
-                                    <input type="text" name="no_sertifikat" value="{{ old('no_sertifikat') }}" placeholder="Masukkan No"
-                                        class="form-control @error('no_sertifikat') is-invalid @enderror" required>
-        
-                                    @error('no_sertifikat')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                      
-
-                        <div class="row" style="display: none">
-                          
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>No PBB</label>
-                                    <input type="number" name="no_ppb" value="{{ old('no_ppb') }}" placeholder="Masukkan No PBB"
-                                        class="form-control">
+                                    <label>No Register</label>
+                                    <input type="number" name="register" value="{{ old('register') }}" placeholder="Masukkan Register" class="form-control" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -143,7 +250,8 @@
                                         <option value="2001">2001</option>
                                         <option value="2002">2002</option>
                                         <option value="2003">2003</option>
-                                        <option value="2004">2004</option>                                        <option value="2004">2004</option>
+                                        <option value="2004">2004</option>                                        
+                                        <option value="2004">2004</option>
                                         <option value="2005">2005</option>
                                         <option value="2006">2006</option>
                                         <option value="2007">2007</option>
@@ -162,104 +270,37 @@
                                         <option value="2020">2020</option>
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
-
                                     </Select>
                                 </div>
                             </div>
-                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Luas</label>
-                                    <input type="number" name="luas" value="{{ old('luas') }}" placeholder="Masukkan Luas"
-                                        class="form-control">
-                                </div>
-                            </div>
-                             <div class="col-md-3">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="number" name="harga" value="{{ old('harga') }}" placeholder="Masukkan Harga"
-                                        class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row" style="display: none">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Kondisi</label>
-                                    <input type="text" name="kondisi" value="{{ old('kondisi') }}" placeholder="Masukkan Kondisi "
-                                        class="form-control @error('kondisi') is-invalid @enderror">
-        
-                                    @error('kondisi')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div>
-                           
-                            
-                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Asal usul</label>
-                                    <input type="text" name="asal_usul" value="{{ old('asal_usul') }}" placeholder="Masukkan Asal "
-                                        class="form-control">
+                                    <input type="number" name="harga" value="{{ old('harga') }}" placeholder="Masukkan Harga" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Tanggal Surat</label>
-                                    <input type="date" name="tgl_surat" value="{{ old('tgl_surat') }}" 
-                                        class="form-control">
-                                </div>
-                            </div>
-                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Status Tanah</label>
-                                    <input type="text" name="status" value="ada" readonly placeholder="Masukkan Status "
-                                        class="form-control @error('jenis_aset') is-invalid @enderror">
-        
-                                </div>
-                            </div>
-                        </div>
-
-                         <div class="row" style="display: none">
-                           
-                           
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Alamat</label>
-                                    <textarea name="alamat" class="form-control" placeholder="Masukan alamat" id="" cols="30" rows="5">{{ old('alamat') }}</textarea>
-                                    
+                                    <label>Peruntukan Awal</label>
+                                    <input type="text" name="peruntukan_awal" class="form-control" placeholder="Masukkan Peruntukan Awal" value="{{ old('peruntukan_awal') }}">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Kelurahan</label>
-                                    <textarea name="kelurahan" class="form-control" placeholder="Masukan kelurahan" id="" cols="30" rows="5">{{ old('kelurahan') }}</textarea>
-                                    
+                                    <label>Keterangan Status Tanah</label>
+                                    <textarea name="keterangan_status" class="form-control" placeholder="Masukan Keterangan" id="" cols="30" rows="5">{{ old('keterangan_status') }}</textarea>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Kecamatan</label>
-                                    <textarea name="kecamatan" class="form-control" placeholder="Masukan kecamatan" id="" cols="30" rows="5">{{ old('kecamatan') }}</textarea>
-                                    
-                                </div>
-                            </div>
-                             <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Keterangan</label>
-                                    <textarea name="keterangan" class="form-control" placeholder="Masukan Keterangan" id="" cols="30" rows="5">{{ old('keterangan') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>                         
+                        
+                       
+                        
+                        {{-- Submit Button --}}
                         <div class="text-center" id="button" style="display: none">
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
                         </div>
-
                     </form>
                 </div>
             </div>
