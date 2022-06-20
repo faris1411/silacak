@@ -36,7 +36,14 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="row" style="display: none">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input type="text" name="status" value="ada" readonly placeholder="Masukkan Status" class="form-control @error('jenis_aset') is-invalid @enderror">
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Foto</label>
@@ -49,6 +56,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="row col-md-3" style="display: none">
                             <h6>Lokasi Tanah</h6>
@@ -122,8 +130,8 @@
                                 <div class="form-group">
                                     <label>Surat Tanah</label>
                                     <Select name="surat_tanah" class="form-control">
-                                        <option value="ada">Ada</option>
-                                        <option value="tidak_ada">Tidak ada</option>
+                                        <option value="Ada">Ada</option>
+                                        <option value="Tidak ada">Tidak ada</option>
                                     </Select>
                                 </div>
                             </div>
@@ -132,8 +140,8 @@
                                     <label>Bentuk Surat</label>
                                     <Select name="bentuk_surat" class="form-control">
                                         <option value="">-</option>
-                                        <option value="sph">SPH</option>
-                                        <option value="sertifikat">Sertifikat</option>
+                                        <option value="SPH">SPH</option>
+                                        <option value="Sertifikat">Sertifikat</option>
                                     </Select>
                                 </div>
                             </div>
@@ -164,9 +172,9 @@
                                 <div class="form-group">
                                     <label>Bentuk asal usul Tanah</label>
                                     <Select name="asal_usul" class="form-control">
-                                        <option value="pembebasan">Pembebasan</option>
-                                        <option value="hibah">Hibah</option>
-                                        <option value="kas_desa">Kas Desa</option>
+                                        <option value="Pembebasan">Pembebasan</option>
+                                        <option value="Hibah">Hibah</option>
+                                        <option value="Kas Desa">Kas Desa</option>
                                     </Select>
                                 </div>
                             </div>
@@ -191,8 +199,8 @@
                                 <div class="form-group">
                                     <label>Konflik Tanah</label>
                                     <Select name="konflik" class="form-control">
-                                        <option value="sengketa">Sengketa</option>
-                                        <option value="clear">Clear & Clean</option>
+                                        <option value="Sengketa">Sengketa</option>
+                                        <option value="Clear & Clean">Clear & Clean</option>
                                     </Select>
                                 </div>
                             </div>

@@ -546,6 +546,7 @@ CREATE TABLE `tanahs` (
   `no_surat_dokumen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_surat_dokumen` date NOT NULL,
   `asal_usul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_surat_asal_usul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_surat_asal_usul` date NOT NULL,
   `konflik` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
