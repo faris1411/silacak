@@ -36,47 +36,48 @@ class LuasTanahController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
+        //dd($request->all());
         $this->validate($request, [
-            'foto'          => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'file'          => 'required|mimes:pdf|max:10000',
-           
-        ],
-    [
-        'file.mimes' => "File Harus PDF"
-    ]);
+            'foto'          => 'required|image|mimes:jpeg,jpg,png|max:2000',           
+        ]);
         // simpan foto
         $foto = $request->file('foto');
         $foto->storeAs('public/tanah', $foto->hashName());
-        // simpan file
-        $file = $request->file('file');
-        $file->storeAs('public/tanah', $file->hashName());
         // simpan ke databse
         $tanah = Tanah::create([
-            'name'          => $request->name,
-            'user_id'       => $request->user_id,
-            'kode_barang'   => $request->kode_barang,
-            'register'      => $request->register,
-            'no_sertifikat' => $request->no_sertifikat,
-            'no_pbb'        => $request->no_ppb,
-            'tahun_perolehan' => $request->tahun_perolehan,
-            'luas'          => $request->luas,
-            'harga'         => $request->harga,
-            'kondisi'       => $request->kondisi,
-            'tgl_surat'     => $request->tgl_surat,
-            'asal_usul'     => $request->asal_usul,
-            'status'        => $request->status,
-            'alamat'        => $request->alamat,
-            'kelurahan'     => $request->kelurahan,
-            'kecamatan'     => $request->kecamatan,
-            'keterangan'     => $request->keterangan,
-            'foto'          => $foto->hashName(),
-            'file'          => $file->hashName(),
+            'user_id'               => $request->user_id,
+            'status'                => $request->status,
+            'foto'                  => $foto->hashName(),
+            'alamat'                => $request->alamat,
+            'kelurahan_desa'        => $request->kelurahan_desa,
+            'kecamatan'             => $request->kecamatan,
+            'koordinat'             => $request->koordinat,
+            'batas_utara'           => $request->batas_utara,
+            'batas_timur'           => $request->batas_timur,
+            'batas_selatan'         => $request->batas_selatan,
+            'batas_barat'           => $request->batas_barat,
+            'luas'                  => $request->luas,
+            'surat_tanah'           => $request->surat_tanah,
+            'bentuk_surat'          => $request->bentuk_surat,
+            'no_surat_dokumen'      => $request->no_surat_dokumen,
+            'tgl_surat_dokumen'     => $request->tgl_surat_dokumen,
+            'asal_usul'             => $request->asal_usul,
+            'no_surat_asal_usul'    => $request->no_surat_asal_usul,
+            'tgl_surat_asal_usul'   => $request->tgl_surat_asal_usul,
+            'konflik'               => $request->konflik,
+            'keterangan_legalitas'  => $request->keterangan_legalitas,
+            'perangkat_daerah'      => $request->perangkat_daerah,
+            'kode_barang'           => $request->kode_barang,
+            'register'              => $request->register,
+            'tahun_perolehan'       => $request->tahun_perolehan,
+            'harga'                 => $request->harga,
+            'peruntukan_awal'       => $request->peruntukan_awal,
+            'keterangan_status'     => $request->keterangan_status,
         ]);
 
         History::create([
             'fk_admin_id' => Auth::user()->id,
-            'aksi' => "Tambah data tanah $tanah->name ",
+            'aksi' => "Tambah data tanah",
 
         ]);
         return redirect()->route('admin.tanah.index')->with('success','data berhasil di simpan');
@@ -121,25 +122,25 @@ class LuasTanahController extends Controller
         $file->storeAs('public/tanah', $file->hashName());
         }
         $tanah->update([
-            'name'          => $request->name,
-            'user_id'       => $request->user_id,
-            'kode_barang'   => $request->kode_barang,
-            'register'      => $request->register,
-            'no_sertifikat' => $request->no_sertifikat,
-            'no_pbb'        => $request->no_ppb,
-            'tahun_perolehan' => $request->tahun_perolehan,
-            'luas'          => $request->luas,
-            'harga'         => $request->harga,
-            'kondisi'       => $request->kondisi,
-            'tgl_surat'     => $request->tgl_surat,
-            'asal_usul'     => $request->asal_usul,
-            'status'        => $request->status,
-            'alamat'        => $request->alamat,
-            'kelurahan'     => $request->kelurahan,
-            'kecamatan'     => $request->kecamatan,
-            'keterangan'     => $request->keterangan,
-            'foto'          => $request->file('foto') != null ? $foto->hashName() : $tanah->foto,
-            'file'          => $request->file('file') != null ? $file->hashName() : $tanah->file,
+            'name'              => $request->name,
+            'user_id'           => $request->user_id,
+            'kode_barang'       => $request->kode_barang,
+            'register'          => $request->register,
+            'no_sertifikat'     => $request->no_sertifikat,
+            'no_pbb'            => $request->no_ppb,
+            'tahun_perolehan'   => $request->tahun_perolehan,
+            'luas'              => $request->luas,
+            'harga'             => $request->harga,
+            'kondisi'           => $request->kondisi,
+            'tgl_surat'         => $request->tgl_surat,
+            'asal_usul'         => $request->asal_usul,
+            'status'            => $request->status,
+            'alamat'            => $request->alamat,
+            'kelurahan'         => $request->kelurahan,
+            'kecamatan'         => $request->kecamatan,
+            'keterangan'        => $request->keterangan,
+            'foto'              => $request->file('foto') != null ? $foto->hashName() : $tanah->foto,
+            'file'              => $request->file('file') != null ? $file->hashName() : $tanah->file,
         ]);
 
         History::create([

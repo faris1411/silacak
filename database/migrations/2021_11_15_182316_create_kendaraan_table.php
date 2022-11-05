@@ -15,7 +15,7 @@ class CreateKendaraanTable extends Migration
     {
         Schema::create('kendaraan', function (Blueprint $table) {
             $table->id();
-             $table->string('kode_barang');
+            $table->string('kode_barang');
             $table->string('register');
             $table->char('tahun_perolehan');
             $table->integer('harga');

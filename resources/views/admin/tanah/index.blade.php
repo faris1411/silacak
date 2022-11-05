@@ -42,7 +42,6 @@
                                 <th scope="col" style="width: 6%">NO.</th>
                                 @if(auth()->user()->can('pimpinan'))
                                 <th scope="col">Keberadaan</th>
-
                                 @endif
                                 <th scope="col">Tanah</th>
                                 <th scope="col">Harga</th>
@@ -56,19 +55,20 @@
                                 @forelse ($tanah as $item)
                                 <tr class="text-center">
                                     <td>{{ $loop->iteration }}</td>
-
-                                     @if(auth()->user()->can('pimpinan'))
-                                        <td scope="col">{{ $item->user->name }}</td>
-
-                                        @endif
-                                    <td>{{ $item->name }}</td>
+                                    
+                                    @if(auth()->user()->can('pimpinan'))
+                                    <td scope="col">{{ $item->user->name }}</td>
+                                    @endif
+                                    
                                     <td>Rp{{ number_format($item->harga,0,",",".") }}</td>
-
-                                    <td>@if ($item->status == "ada")
+                                    <td>
+                                        @if ($item->status == "ada")
                                         <span class="badge badge-primary">Ada</span>
+                                        
                                         @else
                                         <span class="badge badge-warning">Dipinjam</span>
-                                        @endif</td>
+                                        @endif
+                                    </td>
                                     <td>{{ $item->alamat }}</td>
                                     
                                     <td class="text-center">

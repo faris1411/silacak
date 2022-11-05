@@ -41,14 +41,18 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" name="status" value="ada" readonly placeholder="Masukkan Status" class="form-control @error('jenis_aset') is-invalid @enderror">
+                                    <input type="text" name="status" value="ada" readonly placeholder="Masukkan Status" class="form-control @error('status') is-invalid @enderror">
+                                    @error('status')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Foto</label>
-                                    <input type="file" name="foto" value="{{ old('foto') }}" class="form-control  
-                                    @error('foto') is-invalid @enderror" required>
+                                    <input type="file" name="foto" value="{{ old('foto') }}" class="form-control @error('foto') is-invalid @enderror" required>
                                     @error('foto')
                                     <div class="invalid-feedback" style="display: block">
                                         {{ $message }}
@@ -65,26 +69,46 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea name="alamat" class="form-control" placeholder="Masukan alamat" id="" cols="30" rows="5">{{ old('alamat') }}</textarea>
+                                    <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukan alamat" id="" cols="30" rows="5">{{ old('alamat') }}</textarea>
+                                    @error('alamat')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Kelurahan/Desa</label>
-                                    <input type="text" name="kelurahan_desa" value="{{ old('kelurahan_desa') }}" placeholder="Masukkan Kelurahan/Desa" class="form-control">
+                                    <input type="text" name="kelurahan_desa" value="{{ old('kelurahan_desa') }}" placeholder="Masukkan Kelurahan/Desa" class="form-control @error('kelurahan_desa') is-invalid @enderror">
+                                    @error('kelurahan_desa')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Kecamatan</label>
-                                    <input type="text" name="kecamatan" value="{{ old('kecamatan') }}" placeholder="Masukkan Kecamatan" class="form-control">
+                                    <input type="text" name="kecamatan" value="{{ old('kecamatan') }}" placeholder="Masukkan Kecamatan" class="form-control @error('kecamatan') is-invalid @enderror">
+                                    @error('kecamatan')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Titik Koordinat</label>
-                                    <input type="text" name="koordinat" value="{{ old('koordinat') }}" placeholder="Masukkan Titik Koordinat" class="form-control">
+                                    <input type="text" name="koordinat" value="{{ old('koordinat') }}" placeholder="Masukkan Titik Koordinat" class="form-control @error('koordinat') is-invalid @enderror">
+                                    @error('koordinat')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -92,25 +116,45 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="mb-1">Batas Utara</label>
-                                    <input type="text" name="batas_utara" class="form-control mb-2" placeholder="Masukkan batas utara" value="{{ old('batas_utara') }}">
+                                    <input type="text" name="batas_utara" class="form-control mb-2 @error('batas_utara') is-invalid @enderror" placeholder="Masukkan batas utara" value="{{ old('batas_utara') }}">
+                                    @error('koordinat')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="mb-1">Batas Timur</label>
+                                    <label class="mb-1 @error('batas_timur') is-invalid @enderror">Batas Timur</label>
                                     <input type="text" name="batas_timur" class="form-control mb-2" placeholder="Masukkan batas timur" value="{{ old('batas_timur') }}">
+                                    @error('batas_timur')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="mb-1">Batas Selatan</label>
-                                    <input type="text" name="batas_selatan" class="form-control mb-2" placeholder="Masukkan batas selatan" value="{{ old('batas_selatan') }}">
+                                    <input type="text" name="batas_selatan" class="form-control mb-2 @error('batas_selatan') is-invalid @enderror" placeholder="Masukkan batas selatan" value="{{ old('batas_selatan') }}">
+                                    @error('batas_selatan')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="mb-1">Batas Barat</label>
-                                    <input type="text" name="batas_barat" class="form-control" placeholder="Masukkan batas barat" value="{{ old('batas_barat') }}">
+                                    <input type="text" name="batas_barat" class="form-control @error('batas_barat') is-invalid @enderror" placeholder="Masukkan batas barat" value="{{ old('batas_barat') }}">
+                                    @error('batas_barat')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -118,7 +162,12 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Luas</label>
-                                    <input type="number" name="luas" value="{{ old('luas') }}" placeholder="Masukkan Luas" class="form-control">
+                                    <input type="number" name="luas" value="{{ old('luas') }}" placeholder="Masukkan Luas" class="form-control @error('luas') is-invalid @enderror">
+                                    @error('luas')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -128,27 +177,37 @@
                         <div class="row" style="display: none">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Surat Tanah</label>
-                                    <Select name="surat_tanah" class="form-control">
+                                    <label for="surat-tanah">Surat Tanah</label>
+                                    <Select name="surat_tanah" class="form-control @error('surat_tanah') is-invalid @enderror" id="surat-tanah">
                                         <option value="Ada">Ada</option>
                                         <option value="Tidak ada">Tidak ada</option>
                                     </Select>
+                                    @error('surat_tanah')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Bentuk Surat</label>
-                                    <Select name="bentuk_surat" class="form-control">
-                                        <option value="">-</option>
+                                    <label for="bentuk-surat">Bentuk Surat</label>
+                                    <Select name="bentuk_surat" class="form-control @error('bentuk_surat') is-invalid @enderror" id="bentuk-surat">
+                                        <option value="" selected disabled>Pilih bentuk surat</option>
                                         <option value="SPH">SPH</option>
                                         <option value="Sertifikat">Sertifikat</option>
                                     </Select>
+                                    @error('bentuk_surat')
+                                        <div class="invalid-feedback" style="display: block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>No Surat</label>
-                                    <input type="text" name="no_surat_dokumen" value="{{ old('no_surat_dokumen') }}" placeholder="Masukkan No" class="form-control @error('no_surat_dokumen') is-invalid @enderror">
+                                    <label for="no-surat">No Surat</label>
+                                    <input type="text" name="no_surat_dokumen" value="{{ old('no_surat_dokumen') }}" placeholder="Masukkan No" class="form-control @error('no_surat_dokumen') is-invalid @enderror" id="no-surat">
                                         @error('no_surat_dokumen')
                                         <div class="invalid-feedback" style="display: block">
                                             {{ $message }}
@@ -158,9 +217,9 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Tanggal Surat</label>
+                                    <label for="tanggal-surat">Tanggal Surat</label>
                                     <input type="date" name="tgl_surat_dokumen" value="{{ old('tgl_surat_dokumen') }}" 
-                                        class="form-control">
+                                        class="form-control" id="tanggal-surat">
                                 </div>
                             </div>
                         </div>
@@ -367,5 +426,18 @@
 
              
           </script>
-
+        <script>
+            $("#surat-tanah").change(function () { 
+                var $suratTanah = $(this);
+                if ($suratTanah.val() == "Tidak ada") {
+                    $("#bentuk-surat").prop("disabled", true);
+                    $("#no-surat").prop("disabled", true);
+                    $("#tanggal-surat").prop("disabled", true);
+                } else {
+                    $("#bentuk-surat").prop("disabled", false)
+                    $("#no-surat").prop("disabled", false)
+                    $("#tanggal-surat").prop("disabled", false)
+                }
+            });
+        </script>
 @endpush
